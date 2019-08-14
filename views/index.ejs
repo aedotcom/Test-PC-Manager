@@ -1,0 +1,64 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (players.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID  </th>
+                        <th scope="col">PC 구분</th>
+                        <th scope="col">O/S</th>
+                        <th scope="col">S/N (Lock Key)</th>
+                        <th scope="col">Account</th>
+                        <th scope="col">IP Addr.</th>
+                        <th scope="col">MAC Addr.</th>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Tester Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% players.forEach((player, index) => { %>
+                        <tr>
+                            <th scope="row"><%= player.id %></th>
+                            <!--
+                            <td><img src="/assets/img/<%= player.image %>" class="rounded-circle player-img" alt=""></td>
+                            -->
+                            <td><%= player.rack_id %> @ PC - <%= player.pc_number %></td>
+                            <td><%= player.os_type %></td>
+                            <td><%= player.lock_key %></td>
+                            <td><%= player.pc_id %></td>
+                            <td><%= player.ip_addr %></td>
+                            <td><%= player.mac_addr %></td>
+                            <td><%= player.prj_name %></td>
+                            <td><%= player.user_name %></td>
+                            <td>
+                                <a href="/edit/<%= player.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= player.id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <table class="table table-hovered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID  </th>
+                            <th scope="col">PC 구분</th>
+                            <th scope="col">O/S</th>
+                            <th scope="col">S/N (Lock Key)</th>
+                            <th scope="col">Account</th>
+                            <th scope="col">IP Addr.</th>
+                            <th scope="col">MAC Addr.</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Tester Name</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    </table>
+            <p class="text-center">No Test Desktop PC found. Go <a href="/add" >here</a> to add Test-PCs.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

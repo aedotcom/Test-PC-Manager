@@ -1,0 +1,78 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (player) { %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md3">
+                    <label for="rack_id">PC 구분</label>
+                    <select name="rack_id" id="rack_id" class="form-control" required disabled title="RACK ID can't be changed">
+                        <option selected><%= player.rack_id %></option>
+                        <option>Rack-1</option>
+                        <option>Rack-2</option>
+                        <option>Rack-3</option>
+                        <option>Rack-4</option>
+                    </select>
+                </div>
+                <div class="form-group col-md3">
+                    <label for="number">Number</label>
+                    <input type="number" class="form-control" name="pc_number" id="pc-number" placeholder="Number" value="<%= player.pc_number %>" required disabled title="PC NO. can't be changed">
+                </div>
+                <div class="form-group col-md3">
+                    <label for="os_type">O/S 구분</label>
+                    <select name="os_type" id="os_type" class="form-control" required>
+                        <option selected><%= player.os_type %></option>
+                        <option>Win7</option>
+                        <option>Win7 32bit</option>
+                        <option>Win7 64bit</option>
+                        <option>Vista</option>
+                        <option>Win 8.1</option>
+                        <option>Win 10</option>
+                        <option>Windows Server 2008</option>
+                        <option>Windows XP</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="lock_key">Lock Key</label>
+                    <input type="text" class="form-control" name="lock_key" id="lock-key" placeholder="Lock Key" value="<%= player.lock_key %>" required>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="pc-id">PC Account</label>
+                    <input type="text" class="form-control" name="pc_id" id="pc-id" placeholder="PC Account" value="<%= player.pc_id %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="ip-addr">IP Addr.</label>
+                    <input type="text" class="form-control" name="ip_addr" id="ip-addr" placeholder="IP Address" value="<%= player.ip_addr %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                        <label for="mac-addr">MAC Addr.</label>
+                    <input type="text" class="form-control" name="mac_addr" id="mac-addr" placeholder="MAC Address" value="<%= player.mac_addr %>"  required>
+                </div>
+                
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="prj-name">Project Name</label>
+                    <input type="text" class="form-control" name="prj_name" id="prj-name" placeholder="Project Name" value="<%= player.prj_name %>"  required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="user-name">Tester Name</label>
+                    <input type="text" class="form-control" name="user_name" id="user-name" placeholder="User Name" value="<%= player.user_name %>"  required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success float-right">Update TestPC</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Test-PCs Not Found. Go <a href="/add">here</a> to add Test-PCs.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

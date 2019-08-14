@@ -1,0 +1,69 @@
+<% include partials/header.ejs %>
+    <div class="container">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md3">
+                    <select name="rack_id" id="rack_id" class="form-control" required>
+                        <option selected disabled>Choose Rack Number</option>
+                        <option>Rack-1</option>
+                        <option>Rack-2</option>
+                        <option>Rack-3</option>
+                        <option>Rack-4</option>
+                    </select>
+                </div>
+                <div class="form-group col-md3">
+                    <input type="number" class="form-control" name="pc_number" id="pc-number" placeholder="Number" required>
+                </div>
+                <div class="form-group col-md3">
+                        <select name="os_type" id="os_type" class="form-control" required>
+                            <option selected disabled>Choose O/S Type</option>
+                            <option>Win7</option>
+                            <option>Win7 32bit</option>
+                            <option>Win7 64bit</option>
+                            <option>Vista</option>
+                            <option>Win 8.1</option>
+                            <option>Win 10</option>
+                            <option>Windows Server 2008</option>
+                            <option>Windows XP</option>
+                        </select>
+                </div>
+                <div class="form-group col-md-3">
+                        <input type="text" class="form-control" name="lock_key" id="lock-key" placeholder="Lock Key" required>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="pc_id" id="pc-id" placeholder="PC Account" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="ip_addr" id="ip-addr" placeholder="IP Address" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="mac_addr" id="mac-addr" placeholder="MAC Address" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" name="prj_name" id="prj-name" placeholder="Project Name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" name="user_name" id="user-name" placeholder="User Name" required>
+                </div>
+                
+                <!--
+                <div class="col-md-12">
+                    <label for="player-img"><b>Player Image</b></label><br>
+                    <input type="file" name="image" id="player-img" class="" required>
+                </div>
+                -->
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Add TEST-PC</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
